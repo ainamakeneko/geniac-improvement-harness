@@ -1,41 +1,44 @@
 # TASK
 
-## Experiment 4 — Evaluate a partial success without overclaiming
+## Real Pilot 1 — Annual work-type aggregation for government submission
 
-Read `AGENTS.md`, `skills/improvement-run/SKILL.md`, `CONTEXT/facility-profile.md`, `OBSERVATIONS/interview-notes-01.md`, the Experiment 1–3 proposals under `EXPERIMENTS/proposed/`, the simulated observation files, and `RESULTS/simulated-experiment-03-result.md`.
+Read `AGENTS.md`, `skills/improvement-run/SKILL.md`, `CONTEXT/facility-profile.md`, and `OBSERVATIONS/real-annual-work-type-aggregation-01.md`.
 
-All simulated files are harness-test evidence only. Do not present them as real facility evidence.
+This is the first real-facility pilot. Treat only statements in the real observation file as current evidence. Earlier simulated experiments may inform the improvement method, but must not be treated as evidence about this facility task.
 
-This run tests whether the improvement process can correctly evaluate a mixed result: the intervention appears to reduce retrieval time, but some effort shifts into preparation/refiling and checking, leaving only a modest net end-to-end improvement.
+The human operator entered this work partway through. Monthly records had existed in Excel, but only printed paper was available during the observed annual aggregation. Approximately one year of service-user work-type records was manually aggregated to prepare source material for a government submission. The exact application, recurrence, process ownership, file history, and time burden remain partly unknown.
 
 Your task is to:
-1. compare baseline and intervention evidence using net end-to-end effect, not a single favorable metric;
-2. explicitly account for readiness, refiling, checking, maintenance, and any shifted burden;
-3. separate OBSERVED, HYPOTHESIS, and UNKNOWN claims;
-4. decide whether the result should be classified as promising, inconclusive, failed, or harmful, and justify that classification;
-5. compare at least four next-step options, including:
-   - immediate rollback / stop,
-   - repeat the same small intervention for more validation,
-   - modify the intervention to reduce shifted burden,
-   - a different non-software or software intervention only if evidence justifies it,
-   - permanent adoption only as an option to reject or justify under a very high evidence bar;
-6. select at most one next experiment or decide to stop;
-7. optimize for expected learning value per unit of staff effort and risk, not for demonstrating AI capability;
-8. define the evidence threshold required before broader rollout or permanent process change;
-9. create a new proposal under `EXPERIMENTS/proposed/` only if another experiment is justified; otherwise create a concise decision record under `RESULTS/` explaining why the loop should stop;
-10. stop before real field deployment, broader rollout, permanent workflow/storage/technology change, or permanent harness modification.
+1. reconstruct the current evidence without inventing missing process details;
+2. separate OBSERVED, HYPOTHESIS, and UNKNOWN claims;
+3. identify several plausible improvement opportunities across process, file preservation, spreadsheet automation, OCR/transcription, checking, and doing nothing yet;
+4. distinguish prevention of future manual work from acceleration of the already-paper-based fallback path;
+5. rank the opportunities using expected benefit, evidence strength, privacy/safety risk, reversibility, staff burden, measurability, and recurrence;
+6. determine the minimum additional evidence needed before a useful intervention can be proposed;
+7. prefer a short targeted follow-up question set or a small observation/measurement step if key uncertainties block a safe intervention;
+8. if evidence is already sufficient for a very small reversible experiment, propose at most one experiment under `EXPERIMENTS/proposed/` using the template;
+9. do not build software merely because structured data might once have existed;
+10. stop before field deployment, handling real personal data, changing official records, or making a permanent workflow/storage/technology change.
 
-Important evaluation rules:
-- Do not equate a large reduction in retrieval time with an equal net benefit.
-- Do not treat two intervention sessions as sufficient for permanent adoption.
-- Do not ignore a possible increase in checking time merely because total time improved.
-- Do not demand statistically strong evidence that would be disproportionate for a cheap, reversible operational experiment.
-- A modest net improvement may justify another small validation step, but only if the next step resolves a concrete decision-relevant uncertainty.
+Important constraints:
+- Do not infer the exact subsidy, regulation, form, reporting cadence, or legal requirement.
+- Do not assume the original Excel files are permanently lost; their existence/location is UNKNOWN.
+- Do not recommend uploading unredacted service-user records to an external AI/OCR service.
+- Consider whether preserving/exporting structured monthly data could eliminate future annual manual counting before optimizing the paper fallback.
+- Account for verification burden: an OCR or automation approach that saves counting time but creates substantial correction/checking work may not be a net improvement.
+- The first real pilot should minimize staff effort and should be safe to abandon.
+
+At completion, produce one concise decision artifact under `EXPERIMENTS/proposed/` if an experiment is justified. If the evidence is not yet sufficient, instead create `RESULTS/real-pilot-01-next-evidence.md` containing:
+- the strongest current hypotheses;
+- the smallest set of concrete questions/observations needed next;
+- why each item changes a decision;
+- what can already be ruled out;
+- the likely decision branches after the answers arrive.
 
 At completion, explain:
-- the gross effect and the net effect;
-- what burden appears to have shifted rather than disappeared;
-- whether the result is strong enough to continue, modify, stop, or roll back;
-- why the chosen next step has better expected learning value than the strongest alternative;
-- what exact future evidence would justify broader adoption;
-- whether this run reveals a repeated or consequential harness weakness. If not, do not propose a permanent harness change.
+- what is known versus still unknown;
+- the leading improvement opportunity and why it is not yet necessarily the solution;
+- the minimum human effort required for the next step;
+- what evidence would justify building a spreadsheet/script/tool;
+- what evidence would instead favor a process/file-management change;
+- whether any permanent harness improvement is justified. Do not propose one without repeated or consequential evidence.
