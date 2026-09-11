@@ -1,37 +1,41 @@
 # TASK
 
-## Real Pilot 1B — Decide the next safe branch from follow-up evidence
+## Real Pilot 1C — Test the smallest structured-data path
 
-Read `AGENTS.md`, `skills/improvement-run/SKILL.md`, `CONTEXT/facility-profile.md`, `OBSERVATIONS/real-annual-work-type-aggregation-01.md`, `OBSERVATIONS/real-annual-work-type-aggregation-followup-02.md`, and `RESULTS/real-pilot-01-next-evidence.md`.
+Read `AGENTS.md`, `skills/improvement-run/SKILL.md`, `CONTEXT/facility-profile.md`, `OBSERVATIONS/real-annual-work-type-aggregation-01.md`, `OBSERVATIONS/real-annual-work-type-aggregation-followup-02.md`, `OBSERVATIONS/real-annual-work-type-aggregation-followup-03.md`, `RESULTS/real-pilot-01-next-evidence.md`, and the latest Real Pilot 1B decision record under `RESULTS/` if present.
 
-This is a continuation of a real-facility pilot. Treat only the two REAL observation files as facility evidence. Earlier simulated experiments may inform method only.
+This is a continuation of a real-facility pilot. Treat only REAL observation files as facility evidence. Earlier simulated experiments may inform method only.
 
-New operator-reported evidence indicates that the task likely recurs annually, one person spent about two hours on the observed occurrence including photographing paper, AI-assisted transcription, and modifying an Excel workbook, and the monthly source format was broadly similar across months. The existence/access status of the original monthly Excel files remains unknown and can likely be clarified by asking the appropriate person.
+New confirmed evidence: the original monthly Excel files exist and can be reused in future annual aggregation work. The task is expected to recur annually, and the monthly source format is broadly similar across months. The observed roughly two-hour effort is not a clean baseline because it included photographing paper, AI-assisted transcription, and ad-hoc workbook modification.
 
 Your task is to:
-1. update the decision using the new evidence without double-counting the two-hour estimate as a clean manual baseline;
+1. update the decision now that structured monthly files are known to exist and be reusable;
 2. separate OBSERVED, HYPOTHESIS, and UNKNOWN claims;
-3. identify the single highest-value remaining question or observation that most changes the next intervention choice;
-4. decide whether the evidence now justifies a small reversible experiment, or whether one targeted factual confirmation is still better;
-5. explicitly compare these branches:
-   - original monthly Excel files exist and are safely accessible;
-   - original monthly Excel files exist but access/preservation is unreliable;
-   - original files do not exist or cannot be used;
-6. prefer upstream prevention of future paper recounting over optimization of OCR/paper fallback when evidence supports it;
-7. if a spreadsheet/script/tool experiment becomes justified, require blank/synthetic structure first and define verification cost, maintenance burden, and rollback;
-8. if a process/file-management experiment becomes justified, keep it temporary/reversible and do not change permissions, retention, official records, or authoritative storage without explicit human approval;
-9. do not use or request unredacted service-user data;
-10. stop before field deployment or permanent workflow/storage/technology change.
+3. compare at least these options:
+   - no change / continue manual annual aggregation from the monthly workbooks;
+   - improve only file availability/preservation if that is still the bottleneck;
+   - use existing Excel capabilities such as formulas, PivotTable, or Power Query;
+   - use a small local script only if it has a clear advantage over Excel;
+   - keep OCR/paper transcription only as a fallback, not the default path;
+4. determine the smallest safe experiment that can test whether structured-data aggregation materially reduces total annual preparation effort;
+5. prefer a prototype using a blank template, sanitized structural sample, or synthetic workbook before any real personal data is handled;
+6. if the workbook structure is still insufficiently known, specify the minimum structural facts needed (for example sheet names, column headers, one row's schema, category encoding, and output shape) without requesting personal records;
+7. account for full end-to-end cost: locating files, loading/importing, aggregation, exception handling, verification, corrections, maintenance, and hand-off;
+8. define how the prototype result will be checked against a known expected result or independently computed synthetic truth;
+9. create at most one reversible experiment proposal under `EXPERIMENTS/proposed/` if evidence is sufficient; otherwise create a concise `RESULTS/real-pilot-1c-structure-needed.md` containing only the minimum structural information to request next;
+10. stop before using real service-user data, changing official records, changing authoritative storage, or deploying a permanent workflow.
 
 Important constraints:
-- Do not infer that the prior photo/AI transcription was authorized merely because it occurred.
-- Do not assume the original Excel files are lost.
-- Do not infer the exact government program, subsidy, legal basis, or submission format.
-- Do not treat the roughly two-hour operator effort as proof of annual savings because it includes ad-hoc tooling and excludes unobserved upstream/downstream work.
-- The next step should minimize staff effort. If one verbal factual check can resolve the main branch, prefer that over a larger experiment.
+- Do not build a new application by default. Prefer the smallest existing-tool solution that can be maintained by the organization.
+- Do not recommend external cloud OCR/AI for unredacted records.
+- Do not infer that Excel automation is worthwhile merely because files exist; the prototype must include verification and maintenance cost.
+- Do not treat the prior two-hour effort as the expected saving.
+- A local script is justified only if workbook structure or repeated steps make Excel-native approaches materially less reliable or maintainable.
+- Any future real-data test requires explicit human approval and locally authorized handling.
 
-At completion:
-- if one targeted confirmation is still the best next step, update or create a concise decision record under `RESULTS/` stating the exact question, who should answer it by role, and what each possible answer triggers;
-- if evidence is sufficient for one reversible experiment, create one proposal under `EXPERIMENTS/proposed/` using the template;
-- explain why the chosen next step has greater expected learning value than immediately building OCR, a new application, or a large automation;
-- state whether any permanent harness change is justified. Do not propose one without repeated or consequential evidence.
+At completion, explain:
+- why the decision changed after confirming the files exist;
+- whether the next step is a prototype experiment or one final structure-only fact check;
+- why Excel-native, local-script, file-management, paper/OCR, and no-change options rank as they do;
+- the exact evidence threshold for moving from synthetic/blank data to a human-approved real-data trial;
+- whether any permanent harness improvement is justified. Do not propose one without repeated or consequential evidence.
